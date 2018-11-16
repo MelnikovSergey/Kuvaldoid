@@ -11,8 +11,13 @@ var game = {
 		this.sprites.background = new Image();
 		this.sprites.background.src = 'images/background.png';
 
+		window.requestAnimationFrame(function(){
+
+		})
+	},
+	render: function(){
 		this.ctx.drawImage(this.sprites.background, 0, 0)
-	}
+	},
 };
 
 // start point, checking page load
