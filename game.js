@@ -1,10 +1,10 @@
 //single global variable in the game
 var game = {
+	ctx: undefined,
+	sprites: {
+		background: undefined,
+	},	
 	start: function(){
-		ctx: undefined;
-		sprites: {
-			background: undefined;
-		},
 		var canvas = document.getElementById('gameArea');
 		this.ctx = canvas.getContext('2d');
 
