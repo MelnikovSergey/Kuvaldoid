@@ -5,5 +5,7 @@ var game = {
 	}
 };
 
-// start point
-game.start();
+// start point, checking page load
+window.addEventListener("load", function(){
+	game.start();
+});
