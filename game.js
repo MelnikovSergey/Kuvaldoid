@@ -12,11 +12,10 @@ var game = {
 		this.ctx = canvas.getContext("2d");
 	},
 	load: function() {
-		this.sprites.background = new Image();
-		this.sprites.background.src = 'images/background.png';
-
-		this.sprites.platform = new Image();
-		this.sprites.platform.src = 'images/platform.png';			
+		for (var key in this.sprites) {
+			this.sprites[key] = new Image();
+			this.sprites[key].src = 'images/' + key + '.png';
+		}
 	},
 	start: function(){
 		this.init();
