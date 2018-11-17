@@ -19,7 +19,7 @@ var game = {
 	},
 	render: function(){
 		this.ctx.drawImage(this.sprites.background, 0, 0);
-		this.ctx.drawImage(this.sprites.platform, 0, 0);		
+		this.ctx.drawImage(this.sprites.platform, this.platform.x, this.platform.y);		
 	},
 	run: function(){
 		this.render();
@@ -29,6 +29,11 @@ var game = {
 		});		
 	}
 };
+
+game.platform = {
+	X: 300,
+	y: 300,
+}
 
 // start point, checking page load
 window.addEventListener("load", function(){
