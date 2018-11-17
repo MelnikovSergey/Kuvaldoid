@@ -19,6 +19,8 @@ var game = {
 		this.sprites.platform.src = 'images/platform.png';			
 	},
 	start: function(){
+		this.init();
+		this.load();
 		this.run();
 	},
 	render: function(){
