@@ -7,16 +7,18 @@ var game = {
 		background: undefined,
 		platform: undefined
 	},
-	start: function(){
+	init: function() {
 		var canvas = document.getElementById("gameArea");
 		this.ctx = canvas.getContext("2d");
-
+	},
+	load: function() {
 		this.sprites.background = new Image();
 		this.sprites.background.src = 'images/background.png';
 
 		this.sprites.platform = new Image();
-		this.sprites.platform.src = 'images/platform.png';		
-
+		this.sprites.platform.src = 'images/platform.png';			
+	},
+	start: function(){
 		this.run();
 	},
 	render: function(){
