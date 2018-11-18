@@ -27,17 +27,15 @@ var game = {
 	create: function(){
 		//level blocks
 		for (var row=0, row < this.rows; row++) {
-		
 			for (var col=0, col < this.cols; col++) {
 				this.blocks.push({
-					x: 68 * col,
-					y: 0,
+					x: 68 * col + 50,
+					y: 38 * row + 35,
 					width: 64,
 					height: 32
 				});
 			}
 		}
-		
 	},
 	start: function(){
 		this.init();
