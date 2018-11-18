@@ -26,14 +26,18 @@ var game = {
 	},
 	create: function(){
 		//level blocks
-		for (var col=0, col < this.cols; col++) {
-			this.blocks.push({
-				x: 68 * col,
-				y: 0,
-				width: 64,
-				height: 32
-			});
+		for (var row=0, row < this.rows; row++) {
+		
+			for (var col=0, col < this.cols; col++) {
+				this.blocks.push({
+					x: 68 * col,
+					y: 0,
+					width: 64,
+					height: 32
+				});
+			}
 		}
+		
 	},
 	start: function(){
 		this.init();
