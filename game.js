@@ -17,6 +17,17 @@ var game = {
 	init: function() {
 		var canvas = document.getElementById("gameArea");
 		this.ctx = canvas.getContext("2d");
+
+		// start point, checking page load
+		window.addEventListener("keydown", function(e){
+			if (e.keyCode == 37) {
+				// left key
+				game.platform.dx = -game.platform.velocity; 
+			} else if (e.keyCode == 39) { 
+				// right key	
+				game.platform.dx = game.platform.velocity; 
+			}
+		});
 	},
 	load: function() {
 		for (var key in this.sprites) {
@@ -54,6 +65,9 @@ var game = {
 		}, this);
 	},
 	run: function(){
+		if (this.platform.dx) {
+			this.platform.move();
+		}
 		this.render();
 
 		window.requestAnimationFrame(function(){
@@ -72,7 +86,12 @@ game.ball = {
 
 game.platform = {
 	X: 300,
-	y: 300
+	y: 300,
+	velocity: 6,
+	dx: 0,
+	move: function() {
+		this.x += this.dx;
+	}
 };
 
 // start point, checking page load
