@@ -64,10 +64,13 @@ var game = {
 			this.ctx.drawImage(this.sprites.block, element.x, element.y);
 		}, this);
 	},
-	run: function(){
+	update: function(){
 		if (this.platform.dx) {
 			this.platform.move();
-		}
+		}		
+	},
+	run: function(){
+		this.update();
 		this.render();
 
 		window.requestAnimationFrame(function(){
