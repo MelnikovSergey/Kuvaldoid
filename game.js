@@ -26,7 +26,10 @@ var game = {
 			} else if (e.keyCode == 39) { 
 				// right key	
 				game.platform.dx = game.platform.velocity; 
-			}
+			} else if (e.keyCode == 32) { 
+				// space bar key	
+				game.platform.releaseBall(); 
+			}	
 		});
 		window.addEventListener("keyup", function(e){
 			game.platform.stop();
@@ -70,7 +73,10 @@ var game = {
 	update: function(){
 		if (this.platform.dx) {
 			this.platform.move();
-		}		
+		},	
+		if (this.ball.dx || this.ball.dy) {
+			this.ball.move();
+		}				
 	},
 	run: function(){
 		this.update();
@@ -87,7 +93,18 @@ game.ball = {
 	height: 22,
 	frame: 0,
 	X: 340,
-	y: 278
+	y: 278,
+	dx: 0,
+	dy: 0,
+	velocity: 3,
+	jump: function(){
+		this.dx = -this.velocity;		
+		this.dy = -this.velocity;
+	},
+	move: function() {
+		this.x += this.dx;
+		this.y += this.dy;		
+	}	
 };
 
 game.platform = {
@@ -96,6 +113,12 @@ game.platform = {
 	velocity: 6,
 	dx: 0,
 	ball: game.ball,
+	releaseBall: function() {
+		if(this.ball) {
+			this.ball.jump();
+			this.ball = false;
+		}
+	},
 	move: function() {
 		this.x += this.dx;
 
