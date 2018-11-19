@@ -95,11 +95,20 @@ game.platform = {
 	y: 300,
 	velocity: 6,
 	dx: 0,
+	ball: game.ball,
 	move: function() {
 		this.x += this.dx;
+
+		if (this.ball) {
+			this.ball.x += this.dx;
+		}
 	},
 	stop: function(){
 		this.dx = 0;
+
+		if (this.ball) {
+			this.ball.dx = 0;
+		}
 	}
 };
 
