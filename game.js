@@ -28,6 +28,9 @@ var game = {
 				game.platform.dx = game.platform.velocity; 
 			}
 		});
+		window.addEventListener("keyup", function(e){
+			game.platform.stop();
+		});
 	},
 	load: function() {
 		for (var key in this.sprites) {
@@ -94,6 +97,9 @@ game.platform = {
 	dx: 0,
 	move: function() {
 		this.x += this.dx;
+	},
+	stop: function(){
+		this.dx = 0;
 	}
 };
 
